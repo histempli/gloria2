@@ -1,69 +1,121 @@
+/**
+ * ==========================================================
+ * Lumine | Kır Düğünü Bütçe Hesaplayıcı
+ * ==========================================================
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. Girdi Elemanlarının Seçimi
     const guestRange = document.getElementById('guestRange');
     const guestCountDisplay = document.getElementById('guestCountDisplay');
-    const eventSelect = document.getElementById('eventSelect');
-    const decorSelect = document.getElementById('decorSelect');
+    const eventRadios = document.querySelectorAll('input[name="eventType"]');
+    const menuSelect = document.getElementById('menuSelect');
     const serviceCheckboxes = document.querySelectorAll('.checkbox-grid input[type="checkbox"]');
+
+    // 2. Çıktı / Özet Elemanlarının Seçimi
     const totalPriceDisplay = document.getElementById('totalPriceDisplay');
+    const summaryMenuCost = document.getElementById('summaryMenuCost');
+    const summaryVenueCost = document.getElementById('summaryVenueCost');
+    const summaryExtraCost = document.getElementById('summaryExtraCost');
     const transferToFormBtn = document.getElementById('transferToFormBtn');
 
+    // Kır Bahçesi Baz Tahsis Bedeli (₺)
+    const venueBaseCost = 20000;
+
+    // Para Formatlayıcı (Örn: 145000 -> ₺145.000)
     function formatCurrency(amount) {
         return '₺' + amount.toLocaleString('tr-TR');
     }
 
+    // Ana Hesaplama Fonksiyonu
     function calculateBudget() {
-        if (!guestRange || !eventSelect) return;
+        if (!guestRange || !menuSelect) return;
 
-        // 1. Katılımcı Sayısı
+        // A. Davetli Sayısı (Maksimum 1.000 Kişi)
         const guestCount = parseInt(guestRange.value, 10);
         guestCountDisplay.textContent = `${guestCount} Kişi`;
 
-        // 2. Etkinlik Türü Baz Fiyatı (Hizmet & Koordinasyon Bedeli)
-        const baseCost = parseInt(eventSelect.options[eventSelect.selectedIndex].getAttribute('data-base'), 10);
+        // B. Menü Maliyeti: Sadece 2 Seçenek (Kuru Pasta veya Yemekli)
+        const selectedMenuOption = menuSelect.options[menuSelect.selectedIndex];
+        const menuPricePerPerson = parseInt(selectedMenuOption.getAttribute('data-price'), 10) || 250;
+        const totalMenuCost = guestCount * menuPricePerPerson;
 
-        // 3. Dekorasyon Çarpanı
-        const decorMultiplier = parseFloat(decorSelect.options[decorSelect.selectedIndex].getAttribute('data-multiplier'));
-        const decorCost = (guestCount * 250) * decorMultiplier; // Kişi başı baz dekorasyon maliyeti
+        // C. Kır Bahçesi Tahsis Bedeli
+        const totalVenueCost = venueBaseCost;
 
-        // 4. Ekstra Hizmetler (Kişi başı catering veya sabit bedeller)
-        let extraCost = 0;
-        serviceCheckboxes.forEach(cb => {
-            if (cb.checked) {
-                const cost = parseInt(cb.getAttribute('data-cost'), 10);
-                if (cb.id === 'serviceCatering') {
-                    extraCost += (cost * guestCount); // Catering kişi başı çarpılır
-                } else {
-                    extraCost += cost; // Medya ve Sanatçı sabit ücret
-                }
+        // D. İsteğe Bağlı Ekstra Hizmetler
+        let totalExtraCost = 0;
+        serviceCheckboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                const cost = parseInt(checkbox.getAttribute('data-cost'), 10) || 0;
+                totalExtraCost += cost;
             }
         });
 
-        // Genel Toplam
-        const grandTotal = baseCost + decorCost + extraCost;
-        totalPriceDisplay.textContent = formatCurrency(Math.round(grandTotal));
+        // E. Genel Toplam
+        const grandTotal = totalMenuCost + totalVenueCost + totalExtraCost;
+
+        // F. Ekrana Yazdır
+        totalPriceDisplay.textContent = formatCurrency(grandTotal);
+        summaryMenuCost.textContent = formatCurrency(totalMenuCost);
+        summaryVenueCost.textContent = formatCurrency(totalVenueCost);
+        summaryExtraCost.textContent = formatCurrency(totalExtraCost);
     }
 
-    // Event Listeners
-    [guestRange, eventSelect, decorSelect, ...serviceCheckboxes].forEach(el => {
-        if(el) el.addEventListener('input', calculateBudget);
-        if(el) el.addEventListener('change', calculateBudget);
+    // Dinleyici (Event Listener) Atamaları
+    if (guestRange) {
+        guestRange.addEventListener('input', calculateBudget);
+    }
+
+    if (menuSelect) {
+        menuSelect.addEventListener('change', calculateBudget);
+    }
+
+    eventRadios.forEach(radio => {
+        radio.addEventListener('change', calculateBudget);
     });
 
-    // Forma Aktarma
+    serviceCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', calculateBudget);
+    });
+
+    // "Bu Bütçe İle Teklif Al" butonuna basıldığında değerleri iletişim formuna aktarma
     if (transferToFormBtn) {
         transferToFormBtn.addEventListener('click', () => {
-            const guestInput = document.getElementById('userNotes');
+            const guestCount = guestRange.value;
+            let selectedEvent = 'dugun';
+            eventRadios.forEach(r => { if (r.checked) selectedEvent = r.value; });
+
+            const selectedMenuText = menuSelect.options[menuSelect.selectedIndex].text;
+
+            // Formdaki alanları bul
+            const guestInput = document.getElementById('guestEstimate');
             const conceptSelect = document.getElementById('conceptChoice');
-            
-            if (conceptSelect) conceptSelect.value = eventSelect.value;
-            
-            if (guestInput) {
-                guestInput.value = `Hesaplanan Tahmini Bütçe: ${totalPriceDisplay.textContent}\nKatılımcı Sayısı: ${guestRange.value} Kişi\nDekorasyon Seviyesi: ${decorSelect.options[decorSelect.selectedIndex].text}`;
+            const notesTextarea = document.getElementById('userNotes');
+
+            if (guestInput) guestInput.value = guestCount;
+            if (conceptSelect) conceptSelect.value = selectedEvent;
+
+            // Seçilen ekstraları listele
+            const selectedExtras = [];
+            serviceCheckboxes.forEach(cb => {
+                if (cb.checked) {
+                    selectedExtras.push(cb.parentElement.textContent.trim());
+                }
+            });
+
+            if (notesTextarea) {
+                notesTextarea.value = `Hesaplanan Bütçe: ${totalPriceDisplay.textContent}\nDavetli Sayısı: ${guestCount} Kişi\nMenü Tercihi: ${selectedMenuText}\nEkstra Talepler: ${selectedExtras.length > 0 ? selectedExtras.join(', ') : 'Standart'}`;
             }
 
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            // İletişim bölümüne pürüzsüz kaydır
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            }
         });
     }
 
+    // İlk yüklemede çalıştır
     calculateBudget();
 });
