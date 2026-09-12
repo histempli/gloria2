@@ -3,684 +3,912 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUMERA EVENTS - Wedding & Event Organization</title>
+    <title>Kagan Studio | Kır Düğünü & Davet Bahçesi</title>
+    <meta name="description" content="Kagan Studio güvencesiyle: Doğanın kalbinde 1.000 kişilik kapasitesiyle kır düğünü, kına gecesi, nişan ve bekarlığa veda organizasyonları.">
+    
+    <!-- Google Fonts: Zarif Serif ve Modern Sans-Serif -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #1a1a1a;
-            --accent: #c5a059;
-            --bg-light: #f9f9f9;
-            --text-dark: #2c2c2c;
-            --text-muted: #666666;
-            --white: #ffffff;
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: var(--text-dark);
-            background-color: var(--white);
-            line-height: 1.6;
-        }
-
-        h1, h2, h3, .brand-name {
-            font-family: 'Playfair Display', serif;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        .site-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .brand-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo-mark {
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            color: var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            font-weight: bold;
-            border-radius: 4px;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .brand-name {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: 1px;
-        }
-
-        .brand-sub {
-            font-size: 10px;
-            color: var(--text-muted);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .desktop-nav ul {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-
-        .desktop-nav a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-size: 14px;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .desktop-nav a:hover {
-            color: var(--accent);
-        }
-
-        .btn-primary-sm {
-            background: var(--primary);
-            color: var(--white);
-            padding: 10px 20px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .btn-primary-sm:hover {
-            background: var(--accent);
-        }
-
-        /* Hero Section */
-        .hero-section {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-            padding: 0 20px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero-badge {
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(5px);
-            display: inline-block;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-
-        .hero-content h1 {
-            font-size: 48px;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        .hero-content h1 em {
-            color: var(--accent);
-            font-style: normal;
-        }
-
-        .hero-content p {
-            font-size: 16px;
-            color: #e0e0e0;
-            margin-bottom: 30px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-        }
-
-        .btn-main, .btn-secondary {
-            padding: 14px 28px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: var(--transition);
-        }
-
-        .btn-main {
-            background: var(--accent);
-            color: var(--white);
-        }
-
-        .btn-main:hover {
-            background: #b08d46;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-
-        .btn-secondary:hover {
-            background: var(--white);
-            color: var(--primary);
-        }
-
-        /* Section Common */
-        section {
-            padding: 100px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 60px auto;
-        }
-
-        .section-tag {
-            color: var(--accent);
-            text-transform: uppercase;
-            font-size: 12px;
-            letter-spacing: 2px;
-            font-weight: 700;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .section-header h2 {
-            font-size: 36px;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 15px;
-        }
-
-        /* Services */
-        .services-section {
-            background: var(--bg-light);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-            transition: var(--transition);
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-
-        .service-icon {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        .service-card h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
-            color: var(--primary);
-        }
-
-        .service-card p {
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-
-        .link-detail {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 13px;
-        }
-
-        /* Concepts */
-        .concepts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
-
-        .concept-card {
-            position: relative;
-            height: 350px;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .concept-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .concept-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .concept-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 25px;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            color: var(--white);
-        }
-
-        .concept-overlay h3 {
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-
-        .concept-overlay p {
-            font-size: 12px;
-            color: #cccccc;
-        }
-
-        /* Process */
-        .process-section {
-            background: var(--bg-light);
-        }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .process-step {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 8px;
-            position: relative;
-        }
-
-        .step-number {
-            font-size: 36px;
-            font-family: 'Playfair Display', serif;
-            color: var(--accent);
-            font-weight: 700;
-            display: block;
-            margin-bottom: 15px;
-        }
-
-        .process-step h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-
-        .process-step p {
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-
-        /* Gallery */
-        .gallery-filters {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 8px 18px;
-            border: 1px solid #ddd;
-            background: transparent;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            background: var(--primary);
-            color: var(--white);
-            border-color: var(--primary);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
-        }
-
-        .gallery-item {
-            height: 300px;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Footer */
-        .site-footer {
-            background: var(--primary);
-            color: var(--white);
-            text-align: center;
-            padding: 80px 20px;
-        }
-
-        .site-footer h2 {
-            font-size: 32px;
-            margin-bottom: 15px;
-        }
-
-        .site-footer p {
-            color: #aaaaaa;
-            font-size: 14px;
-            margin-bottom: 25px;
-        }
-
-        .footer-info {
-            font-size: 16px;
-            margin-bottom: 30px;
-            color: var(--accent);
-        }
-
-        .copyright {
-            font-size: 12px;
-            color: #666;
-        }
-
-        @media(max-width: 768px) {
-            .desktop-nav {
-                display: none;
-            }
-            .hero-content h1 {
-                font-size: 32px;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome İkonları -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stil Dosyaları -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header class="site-header">
-        <div class="nav-container">
+    <!-- ============================================== -->
+    <!-- 1. HEADER & NAVİGASYON (Üst Menü)              -->
+    <!-- ============================================== -->
+    <header id="header" class="site-header">
+        <div class="container nav-container">
             <a href="#hero" class="brand-logo">
-                <span class="logo-mark">L</span>
+                <span class="logo-icon"><i class="fa-solid fa-leaf"></i></span>
                 <div class="logo-text">
-                    <span class="brand-name">LUMERA EVENTS</span>
-                    <span class="brand-sub">Wedding & Event Organization</span>
+                    <span class="brand-name">Kagan Studio</span>
+                    <span class="brand-tagline">KIR BAHÇESİ & DAVET</span>
                 </div>
             </a>
-            <nav class="desktop-nav">
-                <ul>
-                    <li><a href="#hero">Ana Sayfa</a></li>
-                    <li><a href="#services">Hizmetler</a></li>
-                    <li><a href="#concepts">Konseptler</a></li>
-                    <li><a href="#process">Süreç</a></li>
-                    <li><a href="#gallery">Galeri</a></li>
-                    <li><a href="#contact">İletişim</a></li>
+
+            <!-- Masaüstü Navigasyon -->
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#hero" class="nav-link active">Ana Sayfa</a></li>
+                    <li><a href="#about" class="nav-link">Hakkımızda</a></li>
+                    <li><a href="#services" class="nav-link">Etkinlikler</a></li>
+                    <li><a href="#gallery" class="nav-link">Galeri</a></li>
+                    <li><a href="#calculator" class="nav-link">Bütçe Hesapla</a></li>
+                    <li><a href="#packages" class="nav-link">Paketler</a></li>
+                    <li><a href="#contact" class="nav-link">İletişim</a></li>
                 </ul>
             </nav>
-            <div class="header-cta">
-                <a href="#contact" class="btn-primary-sm">Teklif Al</a>
+
+            <div class="header-actions">
+                <a href="#contact" class="btn btn-primary btn-sm header-cta">Ücretsiz Teklif Al</a>
+                <!-- Mobil Menü Butonu (Hamburger) -->
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Menüyü Aç/Kapat">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobil Menü Çekmecesi -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="mobile-links">
+                <li><a href="#hero" class="mobile-link">Ana Sayfa</a></li>
+                <li><a href="#about" class="mobile-link">Hakkımızda</a></li>
+                <li><a href="#services" class="mobile-link">Etkinlikler</a></li>
+                <li><a href="#gallery" class="mobile-link">Galeri</a></li>
+                <li><a href="#calculator" class="mobile-link">Bütçe Hesapla</a></li>
+                <li><a href="#packages" class="mobile-link">Paketler</a></li>
+                <li><a href="#contact" class="mobile-link">İletişim & Randevu</a></li>
+            </ul>
+            <div class="mobile-contact-info">
+                <p><i class="fa-solid fa-phone"></i> +90 (532) 000 00 00</p>
+                <p><i class="fa-solid fa-envelope"></i> info@kaganstudio.com</p>
             </div>
         </div>
     </header>
 
-    <!-- HERO -->
+    <!-- ============================================== -->
+    <!-- 2. HERO SECTION (Karşılama Ekranı)              -->
+    <!-- ============================================== -->
     <section id="hero" class="hero-section">
-        <div class="hero-content">
-            <div class="hero-badge">✨ Profesyonel Etkinlik & Konsept Yönetimi</div>
-            <h1>Hayalinizdeki Etkinliği <br><em>Birlikte Tasarlayalım.</em></h1>
-            <p>Lumera Events olarak, en özel anlarınızı kusursuz planlama, yaratıcı konseptler ve profesyonel etkinlik yönetimiyle unutulmaz kılıyoruz.</p>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <i class="fa-solid fa-sparkles"></i> Doğanın Kalbinde Yeni Bir Başlangıç
+            </div>
+            <h1 class="hero-title">
+                Hayalinizdeki Kır Düğünü İçin <br>
+                <em>Kagan Studio</em> Kapılarını Açtı
+            </h1>
+            <p class="hero-description">
+                Kagan Studio güvencesiyle hayata geçen kır bahçemiz; geniş yeşil alanı, ferah açık havası ve samimi atmosferiyle kır düğünü, kına gecesi, nişan ve bekarlığa veda kutlamalarınız için hizmetinizde.
+            </p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn-main">Teklif Al</a>
-                <a href="#services" class="btn-secondary">Çalışmalarımızı Gör</a>
+                <a href="#calculator" class="btn btn-primary">
+                    <i class="fa-solid fa-calculator"></i> Bütçenizi Hesaplayın
+                </a>
+                <a href="#gallery" class="btn btn-outline">
+                    <i class="fa-regular fa-images"></i> Bahçemizi Keşfedin
+                </a>
+            </div>
+
+            <!-- Öne Çıkan Gerçekçi İstatistikler -->
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-number">1.000</span>
+                    <span class="stat-label">Kişi Davetli Kapasitesi</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-card">
+                    <span class="stat-number">Yepyeni</span>
+                    <span class="stat-label">Modern Kır Alanı</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-card">
+                    <span class="stat-number">Geniş</span>
+                    <span class="stat-label">Otopark İmkanı</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-card">
+                    <span class="stat-number">Güler Yüz</span>
+                    <span class="stat-label">Taze & Dinamik Ekip</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Aşağı Kaydır Göstergesi -->
+        <a href="#about" class="scroll-down-indicator" aria-label="Aşağı Kaydır">
+            <i class="fa-solid fa-arrow-down"></i>
+        </a>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 3. ABOUT SECTION (Hakkımızda)                  -->
+    <!-- ============================================== -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-images">
+                    <div class="about-img-main">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Kır Bahçesi Masalar" loading="lazy">
+                    </div>
+                    <div class="about-img-secondary">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80" alt="Gelin ve Damat Kır Düğünü" loading="lazy">
+                    </div>
+                    <div class="experience-badge">
+                        <span class="exp-years">Yeni</span>
+                        <span class="exp-text">Açılan Kır Bahçemiz</span>
+                    </div>
+                </div>
+
+                <div class="about-content">
+                    <span class="section-subtitle">Hakkımızda & Mekanımız</span>
+                    <h2 class="section-title">Doğanın İçinde Yepyeni Bir Kır Bahçesi</h2>
+                    <p class="section-lead">
+                        Kagan Studio bünyesinde, şehrin gürültüsünden uzak, yemyeşil ağaçlar arasında yeni hizmete açılan kır bahçemizde açık havanın tüm ferahlığını sizlere sunuyoruz.
+                    </p>
+                    
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-tree"></i></div>
+                            <div>
+                                <h4>Yemyeşil Açık Hava Alanı</h4>
+                                <p>Doğal çim zemin, ferah oturma düzeni ve masalsı bahçe aydınlatması ile gerçek bir kır düğünü keyfi.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-users"></i></div>
+                            <div>
+                                <h4>1.000 Kişiye Varan Geniş Kapasite</h4>
+                                <p>Hem samimi butik davetler hem de 1.000 kişiye kadar uzanan kalabalık kutlamalar için ideal yerleşim imkanı.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-glass-cheers"></i></div>
+                            <div>
+                                <h4>Aynı Bahçede 4 Farklı Kutlama</h4>
+                                <p>Kır düğününüzün yanı sıra kına gecesi, söz/nişan merasimi ve bekarlığa veda partilerinizi aynı özel bahçede gerçekleştiriyoruz.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#services" class="btn btn-secondary">Etkinliklerimizi Görün</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- HİZMETLER -->
-    <section id="services" class="services-section">
+    <!-- ============================================== -->
+    <!-- 4. SERVICES SECTION (Etkinliklerimiz)          -->
+    <!-- ============================================== -->
+    <section id="services" class="section services-section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Hizmetlerimiz</span>
-                <h2>Profesyonel Etkinlik Çözümleri</h2>
-                <p>İhtiyacınıza özel olarak tasarlanan kapsamlı organizasyon hizmetlerimiz.</p>
+            <div class="section-header text-center">
+                <span class="section-subtitle">Etkinliklerimiz</span>
+                <h2 class="section-title">Kır Bahçemizde Yapabileceğiniz Etkinlikler</h2>
+                <p class="section-lead">Bahçemizde sadece açık hava kır konseptinde gerçekleştirdiğimiz 4 ana kutlama türü.</p>
             </div>
+
             <div class="services-grid">
+                <!-- Etkinlik 1: Kır Düğünü -->
                 <div class="service-card">
-                    <div class="service-icon">💍</div>
-                    <h3>Düğün Organizasyonu</h3>
-                    <p>En mutlu gününüzü hayallerinizin ötesine taşıyan uçtan uca planlama.</p>
-                    <a href="#contact" class="link-detail">Detayları Gör &rarr;</a>
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=700&q=80" alt="Kır Düğünü Organizasyonu" loading="lazy">
+                        <span class="service-tag">Ana Etkinlik</span>
+                    </div>
+                    <div class="service-body">
+                        <div class="service-icon"><i class="fa-solid fa-ring"></i></div>
+                        <h3>Kır Düğünü</h3>
+                        <p>Açık havada, doğal kır atmosferinde, özenle süslenmiş gelin yolu ve nikah takı ile unutulmaz bir düğün.</p>
+                        <ul class="service-features">
+                            <li><i class="fa-solid fa-check"></i> 1.000 Kişiye Kadar Oturma Düzeni</li>
+                            <li><i class="fa-solid fa-check"></i> Gelin Yolu & Nikah Kürsüsü</li>
+                            <li><i class="fa-solid fa-check"></i> Kuru Pasta veya Yemekli Menü Seçeneği</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">💐</div>
-                    <h3>Nişan & Kına</h3>
-                    <p>Geleneksel dokunuşları modern trendlerle harmanlayan şık merasimler.</p>
-                    <a href="#contact" class="link-detail">Detayları Gör &rarr;</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🥂</div>
-                    <h3>Özel Davetler</h3>
-                    <p>Doğum günleri, yıldönümleri ve butik kutlamalar için özel konseptler.</p>
-                    <a href="#contact" class="link-detail">Detayları Gör &rarr;</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🏢</div>
-                    <h3>Kurumsal Etkinlikler</h3>
-                    <p>Şirket lansmanları, gala geceleri ve bayi toplantıları için profesyonel yönetim.</p>
-                    <a href="#contact" class="link-detail">Detayları Gör &rarr;</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🎨</div>
-                    <h3>Konsept & Dekorasyon</h3>
-                    <p>Mekâna ruh katacak özgün tasarım, çiçek ve sahne dekorasyonları.</p>
-                    <a href="#contact" class="link-detail">Detayları Gör &rarr;</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">⏱️</div>
-                    <h3>Etkinlik Koordinasyonu</h3>
-                    <p>Etkinlik günü akışının saniyesi saniyesine kusursuz yönetilmesi.</p>
-                    <a href="#contact" class="link-detail">Detayları Gör &rarr;</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- KONSEPTLER -->
-    <section id="concepts" class="concepts-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Tasarım Çizgimiz</span>
-                <h2>Özel Konseptlerimiz</h2>
-                <p>Tarzınızı yansıtan imza konsept tasarımlarımızdan ilham alın.</p>
-            </div>
-            <div class="concepts-grid">
-                <div class="concept-card">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80" alt="Modern Elegance">
-                    <div class="concept-overlay">
-                        <h3>Modern Elegance</h3>
-                        <p>Sade, şık ve zamansız çizgilerle sofistike bir atmosfer.</p>
+                <!-- Etkinlik 2: Kına Gecesi -->
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=700&q=80" alt="Kına Gecesi Organizasyonu" loading="lazy">
+                        <span class="service-tag">Geleneksel & Eğlenceli</span>
+                    </div>
+                    <div class="service-body">
+                        <div class="service-icon"><i class="fa-solid fa-heart"></i></div>
+                        <h3>Kına Gecesi</h3>
+                        <p>Kır bahçemizin ferahlığında kurulan şık kına tahtı, ışıklandırmalar ve eğlenceli müzik yayını.</p>
+                        <ul class="service-features">
+                            <li><i class="fa-solid fa-check"></i> Kır Bahçesine Özel Kına Tahtı</li>
+                            <li><i class="fa-solid fa-check"></i> Geniş Dans & Oyun Pisti</li>
+                            <li><i class="fa-solid fa-check"></i> İkramlıklar & Meşrubat Servisi</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="concept-card">
-                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=80" alt="Classic Romance">
-                    <div class="concept-overlay">
-                        <h3>Classic Romance</h3>
-                        <p>Masalsı detaylar ve romantik ışıklandırma.</p>
+
+                <!-- Etkinlik 3: Söz & Nişan -->
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=700&q=80" alt="Söz ve Nişan Merasimi" loading="lazy">
+                        <span class="service-tag">Zarif & Samimi</span>
+                    </div>
+                    <div class="service-body">
+                        <div class="service-icon"><i class="fa-solid fa-gem"></i></div>
+                        <h3>Söz & Nişan Merasimi</h3>
+                        <p>Aileler ve yakın dostlarla açık havada, çiçeklerle bezeli nişan tagı önünde huzurlu bir tören.</p>
+                        <ul class="service-features">
+                            <li><i class="fa-solid fa-check"></i> Şık Nişan Arka Fonu & Masa Düzeni</li>
+                            <li><i class="fa-solid fa-check"></i> Yüzük Tepsisi & Merasim Hazırlığı</li>
+                            <li><i class="fa-solid fa-check"></i> Fotoğraf Çekim Alanı</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="concept-card">
-                    <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=700&q=80" alt="Garden Dream">
-                    <div class="concept-overlay">
-                        <h3>Garden Dream</h3>
-                        <p>Doğal unsurlar ve yeşilin zarafetiyle harmanlanmış konsept.</p>
+
+                <!-- Etkinlik 4: Bekarlığa Veda -->
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=80" alt="Bekarlığa Veda Partisi" loading="lazy">
+                        <span class="service-tag">Dinamik & Coşkulu</span>
                     </div>
-                </div>
-                <div class="concept-card">
-                    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=700&q=80" alt="Minimal Chic">
-                    <div class="concept-overlay">
-                        <h3>Minimal Chic</h3>
-                        <p>Az ama öz öğeyle yakalanan modern tarz.</p>
+                    <div class="service-body">
+                        <div class="service-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+                        <h3>Bekarlığa Veda Partisi</h3>
+                        <p>Düğün öncesi arkadaşlarınızla doyasıya dans edip kutlama yapabileceğiniz açık hava parti ortamı.</p>
+                        <ul class="service-features">
+                            <li><i class="fa-solid fa-check"></i> Özel Müzik & DJ Performansı</li>
+                            <li><i class="fa-solid fa-check"></i> Açık Hava Parti Işıklandırması</li>
+                            <li><i class="fa-solid fa-check"></i> Atıştırmalık & İkram Masası</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NASIL ÇALIŞIYORUZ -->
-    <section id="process" class="process-section">
+    <!-- ============================================== -->
+    <!-- 5. PORTFOLIO / GALLERY (Galeri & Lightbox)     -->
+    <!-- ============================================== -->
+    <section id="gallery" class="section gallery-section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Adım Adım Süreç</span>
-                <h2>Nasıl Çalışıyoruz?</h2>
-                <p>Hayallerinizi gerçeğe dönüştürürken izlediğimiz yol haritası.</p>
+            <div class="section-header text-center">
+                <span class="section-subtitle">Bahçemizden Kareler</span>
+                <h2 class="section-title">Kır Bahçesi Galerisi</h2>
+                <p class="section-lead">Bahçemizin doğal güzelliği ve hazırladığımız organizasyonlardan detaylar.</p>
+                
+                <!-- Galeri Filtre Butonları -->
+                <div class="gallery-filters" id="galleryFilters">
+                    <button class="filter-btn active" data-filter="all">Tümü</button>
+                    <button class="filter-btn" data-filter="kir">Kır Düğünü</button>
+                    <button class="filter-btn" data-filter="kina">Kına Gecesi</button>
+                    <button class="filter-btn" data-filter="nisan">Söz & Nişan</button>
+                    <button class="filter-btn" data-filter="bekarliga-veda">Bekarlığa Veda</button>
+                </div>
             </div>
-            <div class="process-grid">
-                <div class="process-step">
-                    <span class="step-number">01</span>
-                    <h3>Tanışalım</h3>
-                    <p>Beklentilerinizi ve bütçenizi dinleyerek ilk vizyonu oluşturuyoruz.</p>
+
+            <!-- Galeri Grid -->
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Resim 1: Kır Düğünü -->
+                <div class="gallery-item" data-category="kir">
+                    <div class="gallery-thumb">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Kır Bahçesi Düğün Düzeni" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="gallery-cat">Kır Düğünü</span>
+                            <h4 class="gallery-title">Bahçe Oturma Düzeni</h4>
+                            <button class="gallery-zoom-btn" aria-label="Büyüt"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+                        </div>
+                    </div>
                 </div>
-                <div class="process-step">
-                    <span class="step-number">02</span>
-                    <h3>Tasarlayalım</h3>
-                    <p>Size özel konsept tasarımları ve detaylı planlamayı hazırlıyoruz.</p>
+
+                <!-- Resim 2: Nişan -->
+                <div class="gallery-item" data-category="nisan">
+                    <div class="gallery-thumb">
+                        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Kırda Nişan Merasimi Masası" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="gallery-cat">Söz & Nişan</span>
+                            <h4 class="gallery-title">Nişan Tagı ve Masa Düzeni</h4>
+                            <button class="gallery-zoom-btn" aria-label="Büyüt"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+                        </div>
+                    </div>
                 </div>
-                <div class="process-step">
-                    <span class="step-number">03</span>
-                    <h3>Planlayalım</h3>
-                    <p>Tedarikçi koordinasyonu ve tüm operasyonel detayları netleştiriyoruz.</p>
+
+                <!-- Resim 3: Kır Düğünü -->
+                <div class="gallery-item" data-category="kir">
+                    <div class="gallery-thumb">
+                        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Nikah Kürsüsü Çiçek Takı" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="gallery-cat">Kır Düğünü</span>
+                            <h4 class="gallery-title">Açık Hava Nikah Kürsüsü</h4>
+                            <button class="gallery-zoom-btn" aria-label="Büyüt"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+                        </div>
+                    </div>
                 </div>
-                <div class="process-step">
-                    <span class="step-number">04</span>
-                    <h3>Gerçekleştirelim</h3>
-                    <p>Etkinlik günü tüm detayları kusursuzca yönetiyoruz.</p>
+
+                <!-- Resim 4: Kına -->
+                <div class="gallery-item" data-category="kina">
+                    <div class="gallery-thumb">
+                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Kır Bahçesinde Kına Gecesi" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="gallery-cat">Kına Gecesi</span>
+                            <h4 class="gallery-title">Kına Tahtı ve Işıklandırma</h4>
+                            <button class="gallery-zoom-btn" aria-label="Büyüt"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resim 5: Bekarlığa Veda -->
+                <div class="gallery-item" data-category="bekarliga-veda">
+                    <div class="gallery-thumb">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Kırda Bekarlığa Veda Kutlaması" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="gallery-cat">Bekarlığa Veda</span>
+                            <h4 class="gallery-title">Açık Hava Kutlama Alanı</h4>
+                            <button class="gallery-zoom-btn" aria-label="Büyüt"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resim 6: Kır Düğünü Detay -->
+                <div class="gallery-item" data-category="kir">
+                    <div class="gallery-thumb">
+                        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80" alt="Gelin Masası ve Bahçe Detayı" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="gallery-cat">Kır Düğünü</span>
+                            <h4 class="gallery-title">Gelin Masası & Doğa Manzarası</h4>
+                            <button class="gallery-zoom-btn" aria-label="Büyüt"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GALERİ -->
-    <section id="gallery" class="gallery-section">
+    <!-- Lightbox Modal Penceresi -->
+    <div class="lightbox-modal" id="lightboxModal" aria-hidden="true">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <div class="lightbox-content">
+            <img src="" alt="Büyük Görünüm" id="lightboxImg">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- 6. CALCULATOR SECTION (Bütçe Hesaplayıcı)       -->
+    <!-- ============================================== -->
+    <section id="calculator" class="section calculator-section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Portfolyo</span>
-                <h2>Çalışmalarımızdan Kareler</h2>
-                <p>Gerçekleştirdiğimiz etkinliklerden seçkin örnekler.</p>
-            </div>
-            <div class="gallery-filters">
-                <button class="filter-btn active" data-filter="all">Tümü</button>
-                <button class="filter-btn" data-filter="wedding">Düğün</button>
-                <button class="filter-btn" data-filter="engagement">Nişan</button>
-                <button class="filter-btn" data-filter="corporate">Kurumsal</button>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item" data-category="wedding"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Düğün"></div>
-                <div class="gallery-item" data-category="engagement"><img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Nişan"></div>
-                <div class="gallery-item" data-category="wedding"><img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Düğün"></div>
-                <div class="gallery-item" data-category="corporate"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Kurumsal"></div>
+            <div class="calculator-wrapper">
+                <div class="calculator-header text-center">
+                    <span class="section-subtitle">Şeffaf Fiyatlandırma</span>
+                    <h2 class="section-title">Kır Düğünü Bütçenizi Hesaplayın</h2>
+                    <p class="section-lead">Davetli sayınızı ve tercih ettiğiniz menü türünü seçerek tahmini organizasyon bütçenizi anında görün.</p>
+                </div>
+
+                <div class="calculator-grid">
+                    <!-- Sol Taraf: Seçim Parametreleri -->
+                    <div class="calculator-inputs">
+                        <!-- 1. Davetli Sayısı Slider (Maksimum 1000 Kişi) -->
+                        <div class="calc-group">
+                            <div class="calc-label-row">
+                                <label for="guestRange"><i class="fa-solid fa-users"></i> Davetli Sayısı (Maksimum 1.000 Kişi):</label>
+                                <span class="calc-val-badge" id="guestCountDisplay">300 Kişi</span>
+                            </div>
+                            <input type="range" id="guestRange" min="50" max="1000" step="25" value="300" class="range-slider">
+                            <div class="range-markers">
+                                <span>50 Kişi</span>
+                                <span>500 Kişi</span>
+                                <span>1.000 Kişi</span>
+                            </div>
+                        </div>
+
+                        <!-- 2. Etkinlik Türü -->
+                        <div class="calc-group">
+                            <label><i class="fa-solid fa-calendar-check"></i> Etkinlik Türü:</label>
+                            <div class="radio-cards-grid">
+                                <label class="radio-card">
+                                    <input type="radio" name="eventType" value="dugun" checked>
+                                    <div class="radio-card-body">
+                                        <i class="fa-solid fa-ring"></i>
+                                        <span>Kır Düğünü</span>
+                                    </div>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="eventType" value="kina">
+                                    <div class="radio-card-body">
+                                        <i class="fa-solid fa-heart"></i>
+                                        <span>Kına Gecesi</span>
+                                    </div>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="eventType" value="nisan">
+                                    <div class="radio-card-body">
+                                        <i class="fa-solid fa-gem"></i>
+                                        <span>Söz & Nişan</span>
+                                    </div>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="eventType" value="bekarliga-veda">
+                                    <div class="radio-card-body">
+                                        <i class="fa-solid fa-glass-cheers"></i>
+                                        <span>Bekarlığa Veda</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 3. İkram & Menü Tipi: TAM OLARAK 2 SEÇENEK (Kuru Pasta veya Yemekli) -->
+                        <div class="calc-group">
+                            <label for="menuSelect"><i class="fa-solid fa-utensils"></i> Menü & İkram Tercihi:</label>
+                            <select id="menuSelect" class="form-select">
+                                <option value="kurupasta" data-price="250" selected>Sadece Kuru Pasta & İkram Menüsü (Kuru/Yaş Pasta + Meşrubat - 250 ₺ / Kişi)</option>
+                                <option value="yemekli" data-price="600">Sadece Yemekli Menü (Sıcak Yemekli Ziyafet Menüsü - 600 ₺ / Kişi)</option>
+                            </select>
+                        </div>
+
+                        <!-- 4. Ekstra Hizmetler (İsteğe Bağlı) -->
+                        <div class="calc-group">
+                            <label><i class="fa-solid fa-plus-circle"></i> İsteğe Bağlı Ekstra Hizmetler:</label>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-pill">
+                                    <input type="checkbox" id="servicePhoto" data-cost="20000" checked>
+                                    <span><i class="fa-solid fa-camera"></i> Fotoğraf & 4K Drone Video Çekimi (+20.000 ₺)</span>
+                                </label>
+                                <label class="checkbox-pill">
+                                    <input type="checkbox" id="serviceMusic" data-cost="25000" checked>
+                                    <span><i class="fa-solid fa-music"></i> Canlı Müzik & Profesyonel DJ (+25.000 ₺)</span>
+                                </label>
+                                <label class="checkbox-pill">
+                                    <input type="checkbox" id="serviceFloral" data-cost="15000">
+                                    <span><i class="fa-solid fa-spa"></i> Giriş Kemeri & Gelin Yolu Işık Süslemesi (+15.000 ₺)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sağ Taraf: Fiyat Özeti & Teklif İste -->
+                    <div class="calculator-summary">
+                        <div class="summary-card">
+                            <div class="summary-badge"><i class="fa-solid fa-tag"></i> Tahmini Fiyat Özeti</div>
+                            <div class="total-price-box">
+                                <span class="price-title">Toplam Tahmini Tutar</span>
+                                <div class="price-amount" id="totalPriceDisplay">₺140.000</div>
+                                <span class="price-note">* Nihai fiyat etkinlik tarihine ve sözleşme detaylarına göre kesinleşir.</span>
+                            </div>
+
+                            <ul class="summary-breakdown">
+                                <li>
+                                    <span>Menü Toplamı:</span>
+                                    <strong id="summaryMenuCost">₺75.000</strong>
+                                </li>
+                                <li>
+                                    <span>Kır Bahçesi Tahsisi:</span>
+                                    <strong id="summaryVenueCost">₺20.000</strong>
+                                </li>
+                                <li>
+                                    <span>Seçilen Ekstralar:</span>
+                                    <strong id="summaryExtraCost">₺45.000</strong>
+                                </li>
+                            </ul>
+
+                            <button type="button" class="btn btn-primary btn-block" id="transferToFormBtn">
+                                <i class="fa-solid fa-paper-plane"></i> Bu Bütçe İle Teklif Al
+                            </button>
+                            <p class="small-guarantee text-center"><i class="fa-solid fa-eye"></i> Kır bahçemizi yerinde görmek ve tanışmak tamamen ücretsizdir.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer id="contact" class="site-footer">
+    <!-- ============================================== -->
+    <!-- 7. PACKAGES (Organizasyon Paketleri)            -->
+    <!-- ============================================== -->
+    <section id="packages" class="section packages-section">
         <div class="container">
-            <h2>Hayalinizdeki Etkinlik İçin Görüşelim</h2>
-            <p>Projelerinizi planlamak ve teklif almak için bizimle iletişime geçin.</p>
-            <div class="footer-info">📧 info@lumeraevents.com | 📞 +90 (532) 000 00 00</div>
-            <p class="copyright">&copy; 2026 Lumera Events. Tüm hakları saklıdır.</p>
+            <div class="section-header text-center">
+                <span class="section-subtitle">Paket Seçenekleri</span>
+                <h2 class="section-title">Kır Bahçesi Paketleri</h2>
+                <p class="section-lead">Kuru pasta veya yemekli tercihlerinize göre düzenlenmiş şeffaf paketler.</p>
+            </div>
+
+            <div class="packages-grid">
+                <!-- Paket 1: Kuru Pastalı Kır Düğünü -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3 class="package-title">Kuru Pasta & İkramlı Düğün</h3>
+                        <p class="package-desc">Ekonomik ve samimi açık hava kır düğünleri için.</p>
+                        <div class="package-price">
+                            <span class="currency">₺</span>
+                            <span class="amount">95.000</span>
+                            <span class="period">'den başlayan</span>
+                        </div>
+                    </div>
+                    <ul class="package-list">
+                        <li><i class="fa-solid fa-check"></i> Kır Bahçesi Alan Tahsisi</li>
+                        <li><i class="fa-solid fa-check"></i> Tatlı/Tuzlu Kuru Pasta & Meşrubat İkramı</li>
+                        <li><i class="fa-solid fa-check"></i> Masa & Sandalye Düzeni</li>
+                        <li><i class="fa-solid fa-check"></i> Ses Sistemi & DJ Performansı</li>
+                        <li><i class="fa-solid fa-check"></i> Standart Fotoğraf Çekimi</li>
+                        <li class="disabled"><i class="fa-solid fa-xmark"></i> Sıcak Yemekli Menü</li>
+                        <li class="disabled"><i class="fa-solid fa-xmark"></i> 4K Drone Çekimi</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline btn-block">Bu Paketi Seç</a>
+                </div>
+
+                <!-- Paket 2: Yemekli Kır Düğünü (En Çok Tercih Edilen) -->
+                <div class="package-card featured">
+                    <div class="popular-ribbon">En Çok Tercih Edilen</div>
+                    <div class="package-header">
+                        <h3 class="package-title">Yemekli Kır Düğünü</h3>
+                        <p class="package-desc">Zengin sıcak yemekli menüsüyle eksiksiz bir kır kutlaması.</p>
+                        <div class="package-price">
+                            <span class="currency">₺</span>
+                            <span class="amount">195.000</span>
+                            <span class="period">'den başlayan</span>
+                        </div>
+                    </div>
+                    <ul class="package-list">
+                        <li><i class="fa-solid fa-check"></i> Kır Bahçesi Alan Tahsisi</li>
+                        <li><i class="fa-solid fa-check"></i> Sıcak Yemekli Ana Menü & Meşrubat</li>
+                        <li><i class="fa-solid fa-check"></i> Gelin Yolu & Nikah Kürsüsü Süslemesi</li>
+                        <li><i class="fa-solid fa-check"></i> Profesyonel Ses & Canlı Müzik/DJ</li>
+                        <li><i class="fa-solid fa-check"></i> Fotoğraf & 4K Drone Çekimi</li>
+                        <li><i class="fa-solid fa-check"></i> Geniş Dans & Oyun Pisti</li>
+                        <li><i class="fa-solid fa-check"></i> Koordinasyon & Giriş Yönetimi</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary btn-block">Bu Paketi Seç</a>
+                </div>
+
+                <!-- Paket 3: Kına & Bekarlığa Veda -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3 class="package-title">Kına & Bekarlığa Veda</h3>
+                        <p class="package-desc">Kır bahçemizde coşkulu kına gecesi ve kutlamalar.</p>
+                        <div class="package-price">
+                            <span class="currency">₺</span>
+                            <span class="amount">75.000</span>
+                            <span class="period">'den başlayan</span>
+                        </div>
+                    </div>
+                    <ul class="package-list">
+                        <li><i class="fa-solid fa-check"></i> Kır Bahçesi Alan Tahsisi</li>
+                        <li><i class="fa-solid fa-check"></i> Kır Konseptine Uygun Kına Tahtı</li>
+                        <li><i class="fa-solid fa-check"></i> Kuru Pasta & Çerez İkramlıkları</li>
+                        <li><i class="fa-solid fa-check"></i> Kına Müzikleri & DJ Yayını</li>
+                        <li><i class="fa-solid fa-check"></i> Bahçe Aydınlatması & Dans Pisti</li>
+                        <li><i class="fa-solid fa-check"></i> Fotoğraf Çekim Alanı</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline btn-block">Bu Paketi Seç</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 8. TESTIMONIALS (Çiftlerimizin Yorumları)       -->
+    <!-- ============================================== -->
+    <section class="section testimonials-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Görüşler</span>
+                <h2 class="section-title">Bahçemizi Tercih Eden Çiftlerimiz</h2>
+                <p class="section-lead">Yeni açılan mekanımızda mutluluğa ilk adımı atan çiftlerimizin değerlendirmeleri.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <!-- Yorum 1 -->
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="quote-text">
+                        "Yeni açıldığını duyup Kagan Studio kır bahçesini ziyaret etmiştik, bahçenin genişliği ve doğası bizi hemen etkiledi. Kuru pasta ve ikramlar çok tazeydi, düğünümüz çok eğlenceli geçti!"
+                    </p>
+                    <div class="couple-profile">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Gamze & Cihan" class="couple-avatar">
+                        <div>
+                            <h5>Gamze & Cihan</h5>
+                            <span>Kır Düğünü</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yorum 2 -->
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="quote-text">
+                        "Kagan Studio ekibinin samimiyeti ve ilgisi için teşekkürler. Yemekli kır düğünümüzde hem yemeklerin lezzeti hem de orkestra harikaydı. Herkes çok memnun ayrıldı."
+                    </p>
+                    <div class="couple-profile">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Beril & Yiğit" class="couple-avatar">
+                        <div>
+                            <h5>Beril & Yiğit</h5>
+                            <span>Yemekli Kır Düğünü</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yorum 3 -->
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="quote-text">
+                        "Kına gecemi açık havada yapmayı çok istiyordum. Bahçe ortamında kına tahtı ve müzikler çok güzeldi, açık havada dans etmek harika bir deneyimdi."
+                    </p>
+                    <div class="couple-profile">
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" alt="Aslı & Murat" class="couple-avatar">
+                        <div>
+                            <h5>Aslı & Murat</h5>
+                            <span>Kına Gecesi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 9. CONTACT & BOOKING (İletişim & Teklif Formu) -->
+    <!-- ============================================== -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="contact-card-wrapper">
+                <div class="contact-info-col">
+                    <span class="section-subtitle">İletişime Geçin</span>
+                    <h2 class="section-title text-white">Kır Bahçemizi Birlikte Gezelim</h2>
+                    <p class="contact-lead">
+                        Kagan Studio çatısı altında hizmet veren kır bahçemizi yerinde görmek, bir çay eşliğinde tarihinizi belirlemek için hemen bize ulaşın.
+                    </p>
+
+                    <div class="contact-details">
+                        <div class="detail-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <h5>Mekan Adresimiz:</h5>
+                                <p>Kagan Studio Kır Bahçesi, Doğa Yolu Cad. No:12, İstanbul</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <h5>Telefon & WhatsApp:</h5>
+                                <p>+90 (532) 000 00 00 / +90 (212) 555 00 00</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <h5>E-Posta:</h5>
+                                <p>iletisim@kaganstudio.com</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fa-solid fa-clock"></i>
+                            <div>
+                                <h5>Ziyaret Saatlerimiz:</h5>
+                                <p>Haftanın 7 Günü: 10:00 - 20:00 (Randevulu Keşif)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form-col">
+                    <form id="weddingForm" class="wedding-form" novalidate>
+                        <h3 class="form-title">Fiyat Teklifi & Bahçe Randevusu</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">Adınız & Soyadınız *</label>
+                                <input type="text" id="fullName" class="form-control" placeholder="Örn: Ayşe Yılmaz" required>
+                                <span class="error-msg">Lütfen adınızı giriniz.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefon Numaranız *</label>
+                                <input type="tel" id="phone" class="form-control" placeholder="05XX XXX XX XX" required>
+                                <span class="error-msg">Geçerli bir telefon numarası giriniz.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">E-Posta Adresiniz *</label>
+                                <input type="email" id="email" class="form-control" placeholder="ornek@mail.com" required>
+                                <span class="error-msg">Geçerli bir e-posta giriniz.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="eventDate">Düşündüğünüz Tarih</label>
+                                <input type="date" id="eventDate" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="conceptChoice">Etkinlik Türü</label>
+                                <select id="conceptChoice" class="form-control">
+                                    <option value="dugun">Kır Düğünü</option>
+                                    <option value="kina">Kına Gecesi</option>
+                                    <option value="nisan">Söz & Nişan Merasimi</option>
+                                    <option value="bekarliga-veda">Bekarlığa Veda Partisi</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="guestEstimate">Tahmini Davetli Sayısı (Maks. 1.000)</label>
+                                <input type="number" id="guestEstimate" class="form-control" placeholder="Örn: 300" min="50" max="1000">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userNotes">Notlarınız & Tercihleriniz</label>
+                            <textarea id="userNotes" class="form-control" rows="4" placeholder="Kuru pasta mı yoksa yemekli mi düşündüğünüzü ve merak ettiğiniz diğer detayları yazabilirsiniz..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block btn-lg" id="submitBtn">
+                            <i class="fa-solid fa-leaf"></i> Teklif Talebini Gönder
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 10. FAQ (Sıkça Sorulan Sorular)                 -->
+    <!-- ============================================== -->
+    <section class="section faq-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Merak Edilenler</span>
+                <h2 class="section-title">Sıkça Sorulan Sorular</h2>
+            </div>
+
+            <div class="faq-accordion" id="faqAccordion">
+                <div class="faq-item active">
+                    <button class="faq-question">
+                        <span>Kır bahçemizin maksimum misafir kapasitesi nedir?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Geniş ve ferah açık hava bahçemizde 1.000 kişiye kadar davetliyi rahatlıkla ağırlayabilmekteyiz. İster 100 kişilik butik bir nişan, ister 1.000 kişilik büyük bir kır düğünü olsun alan düzenlemesi ona göre yapılır.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Menü seçenekleri nelerdir?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Bahçemizde iki net seçenek sunuyoruz: Sadece Kuru Pasta & İkramlık Menüsü (taze tatlı/tuzlu kurabiye, yaş pasta ve meşrubat) veya zengin Sıcak Yemekli Menü.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Düğün dışında kına ve nişan da yapılıyor mu?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Evet, aynı kır bahçemizde kır düğününün yanı sıra kına gecesi, söz/nişan merasimi ve bekarlığa veda etkinliklerinizi açık havada düzenliyoruz.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Otopark alanınız var mı?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Evet, davetlilerinizin rahatı için bahçemizin hemen yanında geniş ve ücretsiz otopark alanı bulunmaktadır.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 11. FOOTER (Alt Bilgi)                         -->
+    <!-- ============================================== -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="#hero" class="brand-logo footer-logo">
+                    <span class="logo-icon"><i class="fa-solid fa-leaf"></i></span>
+                    <div class="logo-text">
+                        <span class="brand-name">Kagan Studio</span>
+                        <span class="brand-tagline">KIR BAHÇESİ & DAVET</span>
+                    </div>
+                </a>
+                <p class="footer-about">
+                    Kagan Studio güvencesiyle yeni açılan kır bahçemiz, doğanın kalbinde 1.000 kişilik kapasitesiyle kır düğünleri ve özel kutlamalarınıza ev sahipliği yapıyor.
+                </p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">Hızlı Bağlantılar</h4>
+                <ul class="footer-links">
+                    <li><a href="#about">Hakkımızda</a></li>
+                    <li><a href="#services">Etkinlikler</a></li>
+                    <li><a href="#gallery">Bahçe Galerisi</a></li>
+                    <li><a href="#calculator">Fiyat Hesaplama</a></li>
+                    <li><a href="#packages">Paketler</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">Bahçe Etkinliklerimiz</h4>
+                <ul class="footer-links">
+                    <li><a href="#services">Kır Düğünü</a></li>
+                    <li><a href="#services">Kına Gecesi</a></li>
+                    <li><a href="#services">Söz & Nişan Merasimi</a></li>
+                    <li><a href="#services">Bekarlığa Veda Partisi</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">Bülten</h4>
+                <p class="footer-newsletter-text">Mekanımızdaki yeni sezon fırsatları ve kampanyalardan haberdar olmak için e-posta adresinizi bırakın.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="E-posta adresiniz" required>
+                    <button type="submit" aria-label="Abone Ol"><i class="fa-solid fa-arrow-right"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p>&copy; 2026 Kagan Studio. Tüm Hakları Saklıdır.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Gizlilik Politikası</a>
+                    <span>•</span>
+                    <a href="#">Kullanım Şartları</a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <!-- SCRIPT -->
-    <script>
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const filter = btn.getAttribute('data-filter');
-                galleryItems.forEach(item => {
-                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-    </script>
+    <!-- Toast Bildirimi (Form Başarılı Olduğunda) -->
+    <div class="toast-notification" id="toastNotification">
+        <div class="toast-icon"><i class="fa-solid fa-circle-check"></i></div>
+        <div class="toast-body">
+            <h5 id="toastTitle">Talebiniz Alındı!</h5>
+            <p id="toastMessage">Kagan Studio yetkilisi en kısa sürede sizinle iletişime geçecektir.</p>
+        </div>
+    </div>
+
+    <!-- JavaScript Kodları -->
+    <script src="js/calculator.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
