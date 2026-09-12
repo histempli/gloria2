@@ -1,239 +1,38 @@
-/* ==========================================================
-   Kagan Studio | Kır Bahçesi - Mobil & Tablet Uyumluluk (Responsive)
-========================================================== */
-
-/* 1024px ve Altı (Tablet & Küçük Laptoplar) */
 @media (max-width: 1024px) {
-    .hero-title {
-        font-size: 3rem;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 50px;
-    }
-
-    .about-images {
-        max-width: 600px;
-        margin: 0 auto;
-    }
-
-    .calculator-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .summary-card {
-        position: static;
-        margin-top: 20px;
-    }
-
-    .packages-grid {
-        grid-template-columns: 1fr;
-        max-width: 550px;
-        margin: 0 auto;
-    }
-
-    .package-card.featured {
-        transform: none;
-    }
-
-    .package-card.featured:hover {
-        transform: translateY(-8px);
-    }
-
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-        max-width: 550px;
-        margin: 0 auto;
-    }
-
-    .contact-card-wrapper {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
-    }
+    .hero-title { font-size: 3.2rem; }
+    .about-grid, .calculator-grid, .contact-card-wrapper { grid-template-columns: 1fr; }
+    .services-grid, .gallery-grid, .packages-grid { grid-template-columns: repeat(2, 1fr); }
+    .work-steps { grid-template-columns: repeat(2, 1fr); }
+    .package-card.featured { transform: none; }
 }
 
-/* 768px ve Altı (Tablet Portre & Geniş Mobil) */
 @media (max-width: 768px) {
-    .section {
-        padding: 70px 0;
-    }
-
-    .section-title {
-        font-size: 2.1rem;
-    }
-
-    /* Header Navigasyon Mobil Dönüşümü */
-    .main-nav,
-    .header-cta {
-        display: none;
-    }
-
-    .mobile-toggle {
-        display: flex;
-    }
-
+    .section { padding: 70px 0; }
+    .section-title { font-size: 2.2rem; }
+    .main-nav, .header-cta { display: none; }
+    .mobile-toggle { display: flex; }
+    
     .mobile-menu {
-        display: block;
-        position: fixed;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: #ffffff;
-        box-shadow: var(--shadow-lg);
-        padding: 30px 24px;
-        transform: translateY(-150%);
-        transition: transform 0.4s ease-in-out;
-        z-index: 999;
-        border-bottom: 2px solid var(--gold-primary);
+        display: block; position: fixed; top: 75px; left: 0; width: 100%;
+        background: #fff; padding: 20px; box-shadow: var(--shadow-md);
+        transform: translateY(-150%); transition: transform 0.4s; z-index: 999;
     }
-
-    .mobile-menu.open {
-        transform: translateY(0);
-    }
-
-    .mobile-links {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-        margin-bottom: 25px;
-    }
-
-    .mobile-link {
-        text-decoration: none;
-        color: var(--text-primary);
-        font-size: 1.1rem;
-        font-weight: 600;
-        transition: var(--transition);
-        display: block;
-        padding-bottom: 6px;
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    .mobile-link:hover {
-        color: var(--gold-dark);
-        padding-left: 8px;
-    }
-
-    .mobile-contact-info p {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin-bottom: 8px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .mobile-contact-info i {
-        color: var(--gold-dark);
-    }
-
-    /* Hero Bölümü */
-    .hero-title {
-        font-size: 2.3rem;
-    }
-
-    .hero-description {
-        font-size: 1rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        gap: 14px;
-    }
-
-    .hero-stats {
-        flex-direction: column;
-        gap: 18px;
-        padding: 20px;
-    }
-
-    .stat-divider {
-        width: 60px;
-        height: 1px;
-    }
-
-    /* Galeri 2 Sütun */
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-    }
-
-    .gallery-thumb {
-        height: 240px;
-    }
-
-    /* Hesaplayıcı */
-    .radio-cards-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .calculator-wrapper {
-        padding: 30px 20px;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-
-    .contact-info-col,
-    .contact-form-col {
-        padding: 35px 25px;
-    }
-
-    .footer-container {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-bottom-inner {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
+    .mobile-menu.open { transform: translateY(0); }
+    .mobile-links { list-style: none; display: flex; flex-direction: column; gap: 15px; }
+    .mobile-link { color: var(--text-primary); text-decoration: none; font-weight: 600; display: block; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+    
+    .hero-content { padding-top: 40px; text-align: center; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+    
+    .services-grid, .gallery-grid, .packages-grid, .testimonials-grid, .work-steps { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+    
+    .contact-info-col, .contact-form-col { padding: 40px 30px; }
+    .calculator-wrapper { padding: 30px 20px; }
 }
 
-/* 480px ve Altı (Küçük Akıllı Telefonlar) */
 @media (max-width: 480px) {
-    .hero-title {
-        font-size: 1.95rem;
-    }
-
-    .section-title {
-        font-size: 1.75rem;
-    }
-
-    .about-img-main img {
-        width: 100%;
-        height: 340px;
-    }
-
-    .about-img-secondary {
-        display: none;
-    }
-
-    .experience-badge {
-        top: 15px;
-        left: 15px;
-        padding: 10px 15px;
-    }
-
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .price-amount {
-        font-size: 2.2rem;
-    }
-
-    .toast-notification {
-        left: 20px;
-        right: 20px;
-        bottom: 20px;
-    }
+    .hero-title { font-size: 2.2rem; }
+    .experience-badge { position: relative; top: 0; left: 0; margin-bottom: 20px; }
+    .price-amount { font-size: 2.2rem; }
 }
